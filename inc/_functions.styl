@@ -1,0 +1,44 @@
+flex-row()
+	display flex
+	flex-wrap wrap
+
+lg(property, value...)
+	@media screen and (max-width mint.break.lg)
+		{property} value
+		
+md(property, value...)
+	@media screen and (max-width mint.break.md)
+		{property} value
+
+sm(property, value...)
+	@media screen and (max-width mint.break.sm)
+		{property} value
+
+xs(property, value...)
+	@media screen and (max-width mint.break.xs)
+		{property} value
+
+container( max_width = mint.container_max_width )
+	max-width max_width
+	padding-left: mint.offset.all
+	padding-right: mint.offset.all
+	margin 0 auto
+
+	@media screen and (max-width: mint.break.lg)
+		padding-left: mint.offset.all
+		padding-right: mint.offset.all
+	
+
+	@media screen and (max-width: mint.break.md)
+		padding-left: mint.offset.md
+		padding-right: mint.offset.md
+	
+
+	@media screen and (max-width: mint.break.sm)
+		padding-left: mint.offset.sm
+		padding-right: mint.offset.sm
+	
+
+	@media screen and (max-width: mint.break.xs)
+		padding-left: mint.offset.xs
+		padding-right: mint.offset.xs

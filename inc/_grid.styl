@@ -1,0 +1,39 @@
+col( count, break = 'all' )
+	width = ( 100% / mint.col_count ) * count
+	all_offset = mint.offset.all
+	md_offset = mint.offset.md
+	sm_offset = mint.offset.sm
+	xs_offset = mint.offset.xs
+
+	if break == 'all'
+		width s('calc( %s - %s )', width, all_offset )
+		padding-left: (all_offset / 2)
+		padding-right: (all_offset / 2)
+
+	else if break == 'lg'
+		@media screen and ( max-width mint.break.lg )
+			width s('calc( %s - %s )', width, all_offset )
+			padding-left: (all_offset / 2)
+			padding-right: (all_offset / 2)
+
+
+	else if break == 'md'
+		@media screen and ( max-width mint.break.md )
+			width s('calc( %s - %s )', width, md_offset )
+			padding-left: ( md_offset / 2 )
+			padding-right: ( md_offset / 2 )
+
+
+	else if break == 'sm'
+		@media screen and ( max-width mint.break.sm )
+			width s('calc( %s - %s )', width, sm_offset )
+			padding-left: ( sm_offset / 2 )
+			padding-right: ( sm_offset / 2 )
+
+
+	else if break == 'xs'
+		@media screen and ( max-width mint.break.xs )
+			width s('calc( %s - %s )', width, xs_offset )
+			padding-left: xs_offset
+			padding-right: xs_offset
+
