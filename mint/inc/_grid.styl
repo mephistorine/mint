@@ -1,0 +1,120 @@
+$all_gutter = mint.gutter.all
+$md_gutter = mint.gutter.md
+$sm_gutter = mint.gutter.sm
+$xs_gutter = mint.gutter.xs
+
+col( $count, $break = 'all' )
+	$width = ( 100% / mint.col_count ) * $count
+
+	if $break == 'all'
+		flex-basis s('calc( %s - %s )', $width, $all_gutter )
+		padding-left: ($all_gutter / 2)
+		padding-right: ($all_gutter / 2)
+
+	else if $break == 'lg'
+		lg({
+			flex-basis: s('calc( %s - %s )', $width, $all_gutter ),
+			padding-left: ($all_gutter / 2),
+			padding-right: ($all_gutter / 2)
+		})
+
+	else if $break == 'md'
+		md({
+			flex-basis: s('calc( %s - %s )', $width, $md_gutter ),
+			padding-left: ( $md_gutter / 2 ),
+			padding-right: ( $md_gutter / 2 )
+		})
+
+	else if $break == 'sm'
+		sm({
+			flex-basis: s('calc( %s - %s )', $width, $sm_gutter ),
+			padding-left: ( $sm_gutter / 2 ),
+			padding-right: ( $sm_gutter / 2 )
+		})
+
+	else if $break == 'xs'
+		xs({
+			flex-basis: s('calc( %s - %s )', $width, $xs_gutter ),
+			padding-left: $xs_gutter,
+			padding-right: $xs_gutter
+		})
+
+	else
+		mq({
+			flex-basis: s('calc( %s - %s )', $width, $all_gutter ),
+			padding-left: ($all_gutter / 2),
+			padding-right: ($all_gutter / 2)
+		}, $break)
+
+col-auto( $break = 'all' )
+	if $break == 'all'
+		flex-grow 1
+		flex-basis 0%
+		padding-left: ($all_gutter / 2)
+		padding-right: ($all_gutter / 2)
+	
+	else if $break == 'lg'
+		lg({
+			flex-grow: 1,
+			flex-basis: 0,
+			padding-left: ($all_gutter / 2),
+			padding-right: ($all_gutter / 2)
+		})
+	
+	else if $break == 'md'
+		md({
+			flex-grow: 1,
+			flex-basis: 0,
+			padding-left: ($md_gutter / 2),
+			padding-right: ($md_gutter / 2)
+		})
+	
+	else if $break == 'sm'
+		sm({
+			flex-grow: 1,
+			flex-basis: 0,
+			padding-left: ($sm_gutter / 2),
+			padding-right: ($sm_gutter / 2)
+		})
+	
+	else if $break == 'xs'
+		xs({
+			flex-grow: 1,
+			flex-basis: 0,
+			padding-left: $xs_gutter,
+			padding-right: $xs_gutter
+		})
+
+	else
+		mq({
+			flex-grow: 1,
+			flex-basis: 0,
+			padding-left: ($all_gutter / 2),
+			padding-right: ($all_gutter / 2)
+		}, $break)
+
+col-queue( $queue, $break = 'all' )
+	if $queue == 'first'
+		$order = -1
+	else if $queue == 'last'
+		$order = 1
+	else
+		$order = 0
+
+	if $break == 'all'
+		order $order
+	
+	else if $break == 'lg'
+		lg(order, $order)
+	
+	else if $break == 'md'
+		md(order, $order)
+	
+	else if $break == 'sm'
+		sm(order, $order)
+	
+	else if $break == 'xs'
+		xs(order, $order)
+	
+	else
+		mq(order, $order, $break)
